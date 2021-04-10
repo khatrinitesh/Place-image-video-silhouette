@@ -1,0 +1,78 @@
+/**{
+	margin:0;
+	padding:0;
+}*/
+
+:root {
+  --sunDiameter: 250px;
+}
+
+body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+.mountain {
+  width: 0;
+  height: 0;
+  border-left: 75vh solid transparent;
+  border-right: 75vh solid transparent;
+  border-bottom: 75vh solid black;
+}
+.mountain:before, .mountain:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+}
+.mountain:before {
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50vh solid transparent;
+  border-right: 50vh solid transparent;
+  border-bottom: 50vh solid black;
+}
+.mountain:after {
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 50vh solid transparent;
+  border-right: 50vh solid transparent;
+  border-bottom: 50vh solid black;
+}
+
+.sun {
+  -webkit-animation: sunAnimation 10s linear infinite;
+          animation: sunAnimation 10s linear infinite;
+  filter: drop-shadow(0px 0px 125px white);
+  position: absolute;
+  z-index: -1;
+  top: 30vh;
+  left: -var(--sunDiameter);
+  width: 125px;
+  height: 125px;
+  background: white;
+  border-radius: 100%;
+}
+
+@-webkit-keyframes sunAnimation {
+  0% {
+    transform: translateX(calc(-50vw - var(--sunDiameter)));
+  }
+  100% {
+    transform: translateX(calc(100vw + var(--sunDiameter)));
+  }
+}
+
+@keyframes sunAnimation {
+  0% {
+    transform: translateX(calc(-50vw - var(--sunDiameter)));
+  }
+  100% {
+    transform: translateX(calc(100vw + var(--sunDiameter)));
+  }
+}
